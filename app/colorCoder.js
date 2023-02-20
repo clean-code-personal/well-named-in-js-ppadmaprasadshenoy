@@ -15,6 +15,10 @@ ColorPair.prototype.toString=function(){
 	return `MajorColor:${this.majorColor},MinorColr:${this.minorColor}`;
 }
 
+ColorPair.prototype.toColorCode=function(){
+	return '${this.majorColor} ${this.minorColor}';
+}
+
 function getColorFromPairNumber(pairNumber)
 {
 	let minorSize = MajorColorNames.length;
@@ -66,19 +70,19 @@ function getPairNumberFromColor(pair)
 	 function test(){
 			pairNumber = 4;
             let testPair1 = getColorFromPairNumber(pairNumber);
-            console.log(`[In]Pair Number: ${pairNumber},[Out] Colors:${testPair1}`);
+            console.log(`[In]Pair Number: ${pairNumber},[Out] Colors:${testPair1}.toColorCode()`);
 			console.assert(testPair1.majorColor == "WHITE");
 			console.assert(testPair1.minorColor == "BROWN");
 
 			pairNumber = 5;
             testPair1 = getColorFromPairNumber(pairNumber);
-            console.log(`[In]Pair Number: ${pairNumber},[Out] Colors:${testPair1}`);
+            console.log(`[In]Pair Number: ${pairNumber},[Out] Colors:${testPair1}.toColorCode()`);
 			console.assert(testPair1.majorColor == "WHITE");
 			console.assert(testPair1.minorColor == "SLATEGRAY");
 			 
 			pairNumber = 23;
             testPair1 = getColorFromPairNumber(pairNumber);
-            console.log(`[In]Pair Number: ${pairNumber},[Out] Colors:${testPair1}`);
+            console.log(`[In]Pair Number: ${pairNumber},[Out] Colors:${testPair1}.toColorCode()`);
 			console.assert(testPair1.majorColor == "RED");
 			console.assert(testPair1.minorColor == "GREEN");
 			 
