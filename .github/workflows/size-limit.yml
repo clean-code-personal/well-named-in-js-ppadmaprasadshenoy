@@ -1,0 +1,19 @@
+name: Size Limit
+
+on:
+  pull_request:
+    types: [closed]
+
+jobs:
+  size-limit:
+    runs-on: ubuntu-latest
+    if: github.event.pull_request.merged == true
+    steps:
+    - uses: actions/checkout@v2
+    - name: Check file size
+      run: |
+        size=$(du -b ${{ github.workspace }} | awk '{ print $1 }')
+        if [[ $size -gt 100000000 ]]; then
+          echo "File size limit exceeded. Aborting merge."
+          exit 1
+        fi
