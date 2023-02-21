@@ -1,4 +1,3 @@
-
 import { getColorFromPairNumber, getPairNumberFromColor } from './ColorCoding.js';
 import ColorPair from './ColorPair.js';
 
